@@ -10,7 +10,7 @@ Mytext='''
 ✅ video shorts youtube
 '''
     
-bot = telebot.TeleBot("yourtokenbot")
+bot = telebot.TeleBot("6548441774:AAHGZXS5jq2hNvFvI97krRHzLY3B190GtZs")
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
 	bot.reply_to(message, Mytext)
@@ -42,7 +42,7 @@ def echo_all(message):
         bot.send_video(message.chat.id,video_)
         os.remove(name_videos)
 
-    elif "pinterest" in message.text:
+    elif "pin" in message.text:
         bot.send_message(message.chat.id, "wait for send the video ...")
         r=requests.get(f'https://anyshare-1.powerbots.repl.co/down?url={message.text}')
         r_json=r.json()
@@ -61,7 +61,7 @@ def echo_all(message):
         name_videos='newvideo.mp4'
         video_=open(name_videos,'rb')
         bot.send_video(message.chat.id,video_)
-        os.remove(name_videos)
+        os.remove(name_videos)²
     elif "tiktok" in message.text:
         bot.send_message(message.chat.id, "wait for send the video ...")
         r=requests.get(f'https://anyshare-1.powerbots.repl.co/down?url={message.text}')
@@ -76,7 +76,7 @@ def echo_all(message):
         bot.send_message(message.chat.id, "wait for send the video ...")
         r=requests.get(f'https://anyshare-1.powerbots.repl.co/down?url={message.text}')
         r_json=r.json()
-        vid=r_json.get("shorts")
+        vid=r_json.get("shorts")[0].get('cover')
         downvideo(vid)
         name_videos='newvideo.mp4'
         video_=open(name_videos,'rb')
