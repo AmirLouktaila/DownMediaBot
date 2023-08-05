@@ -61,7 +61,7 @@ def echo_all(message):
         name_videos='newvideo.mp4'
         video_=open(name_videos,'rb')
         bot.send_video(message.chat.id,video_)
-        os.remove(name_videos)²
+        os.remove(name_videos)
     elif "tiktok" in message.text:
         bot.send_message(message.chat.id, "wait for send the video ...")
         r=requests.get(f'https://anyshare-1.powerbots.repl.co/down?url={message.text}')
